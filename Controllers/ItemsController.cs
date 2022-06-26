@@ -56,7 +56,7 @@ namespace Catalog.Controllers
             return CreatedAtAction(nameof(GetItem), new { id = item.Id }, item.AsDto());
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public ActionResult UpdateItem(Guid id, UpdateItemDto itemDto)
         {
             var existingItem = repository.GetItem(id);
@@ -77,7 +77,7 @@ namespace Catalog.Controllers
             return NoContent();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public ActionResult DeleteItem(Guid id)
         {
             var existingItem = repository.GetItem(id);
